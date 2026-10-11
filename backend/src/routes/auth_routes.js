@@ -1,5 +1,3 @@
-require("dotenv").config({ path: "../.env" });
-
 const users = process.env.USERS_TABLE;
 
 const express = require('express');

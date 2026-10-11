@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 async function initDb(db) {
     // unique emails
     await db.collection(process.env.USERS_TABLE).createIndex({email: 1}, {unique: true});

@@ -3,6 +3,7 @@ const express = require('express');
 const {clientConnect, client} = require('./db.js');
 const initDb = require('./db_indexes.js');
 const auth_routes = require('./routes/auth_routes.js');
+const project_routes = require('./routes/project_routes.js');
 const { authenticateToken } = require('./middleware/auth.js');
 const app = express();
 app.use(express.json());
@@ -13,6 +14,7 @@ app.get('/hello/', (req, res) => {
 });
 
 app.use("/auth/", auth_routes);
+app.use("/projects/", project_routes);
 
 app.get("/admin/hello/", authenticateToken, (req, res) => {
     res.json({user: req.user});
